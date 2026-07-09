@@ -13,10 +13,47 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+ID:wght@100..400&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ─── WELCOME SCREEN ────────────────────────────────── -->
+  <div class="welcome-screen split-layout" id="welcomeScreen">
+    <div class="welcome-bg-image">
+      <img src="assets/welcomePage/Background.jpg" alt="Welcome Background" />
+    </div>
+    <div class="welcome-particles" id="welcomeParticles"></div>
+    
+    <div class="welcome-top">
+      <div class="profile-wrapper">
+        <div class="profile-glow"></div>
+        <img src="assets/welcomePage/welcome_profile.jpeg" alt="Mashuk Khan Pranta" class="welcome-profile-pic" />
+      </div>
+    </div>
+    
+    <div class="welcome-divider"></div>
+    
+    <div class="welcome-bottom">
+      <h1 class="welcome-title-new">CREATIVE <span>PORTFOLIO</span></h1>
+      <p class="welcome-subtitle-new">
+        Step into my digital workspace. Experience a blend of clean design,<br/>
+        robust engineering, and creative problem solving tailored for modern web.
+      </p>
+      <p class="welcome-instruction-new">CLICK TO ENTER</p>
+    </div>
+  </div>
+
+  <!-- ─── AUDIO SYSTEM ──────────────────────────────────── -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/Audio/bg_music.mp4" type="audio/mp4" />
+  </audio>
+  
+  <button class="music-toggle" id="musicToggle" aria-label="Toggle Music" style="display: none;">
+    <svg class="music-icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+    <svg class="music-icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+  </button>
 
   <!-- ─── CUSTOM CURSOR ─────────────────────────────────── -->
   <div class="cursor-dot" id="cursorDot"></div>
@@ -159,10 +196,23 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-num" data-count="1">0</span>
+          <span class="stat-num" data-count="3">0</span>
           <span class="stat-plus">+</span>
-          <span class="stat-label">Year Experience</span>
+          <span class="stat-label">Years Exp</span>
         </div>
+      </div>
+
+      <!-- Socials -->
+      <div class="hero-socials reveal-up delay-6" style="margin-top: 2rem; display: flex; gap: 1rem;">
+        <a href="https://github.com/Mashukkhanpranta" target="_blank" class="hero-social-link" aria-label="GitHub">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/mashuk-khan-pranta-6399663b9" target="_blank" class="hero-social-link" aria-label="LinkedIn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="mailto:mashuk.khan.pranta23@gmail.com" class="hero-social-link" aria-label="Email">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
       </div>
     </div>
 
@@ -870,7 +920,7 @@
         </div>
         <!-- Item 2: Video -->
         <div class="graphics-item">
-          <h3 class="graphics-title">Downloded From "Escator" But Uploding my soon</h3>
+          <h3 class="graphics-title">Port city Chittagong</h3>
           <video src="assets/vedio/summer_friday.mp4" autoplay loop muted playsinline></video>
         </div>
         <!-- Item 3: Image -->

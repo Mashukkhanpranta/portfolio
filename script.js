@@ -792,12 +792,94 @@ function initMagneticButtons() {
   });
 }
 
+// ── CINEMATIC ENTRANCE ───────────────────────────────────────
+function initCinematicEntrance() {
+  const welcomeScreen = $('#welcomeScreen');
+  const bgMusic = $('#bgMusic');
+  const musicToggle = $('#musicToggle');
+  
+  if (!welcomeScreen || !bgMusic || !musicToggle) return;
+  
+  const playIcon = musicToggle.querySelector('.music-icon-play');
+  const pauseIcon = musicToggle.querySelector('.music-icon-pause');
+
+  const introPlayed = sessionStorage.getItem('introPlayed');
+
+  if (introPlayed === 'true') {
+    // Already played this session, skip intro
+    welcomeScreen.classList.add('hidden');
+    welcomeScreen.style.display = 'none';
+    
+    // Show music toggle (paused by default)
+    musicToggle.style.display = 'flex';
+    bgMusic.volume = 0.25;
+  } else {
+    // Show intro and hide portfolio initially
+    document.body.classList.add('portfolio-hidden');
+    
+    const clickHandler = (e) => {
+      // Create ripple effect
+      const ripple = document.createElement('div');
+      ripple.className = 'welcome-ripple';
+      ripple.style.left = e.clientX + 'px';
+      ripple.style.top = e.clientY + 'px';
+      welcomeScreen.appendChild(ripple);
+
+      // Play audio
+      bgMusic.volume = 0.25;
+      bgMusic.play().then(() => {
+        musicToggle.classList.add('playing');
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+      }).catch(err => console.warn('Audio autoplay prevented:', err));
+
+      welcomeScreen.removeEventListener('click', clickHandler);
+
+      // Fade out welcome screen after ripple
+      setTimeout(() => {
+        welcomeScreen.classList.add('hidden');
+        musicToggle.style.display = 'flex';
+        
+        // Trigger staggered portfolio reveal
+        document.body.classList.remove('portfolio-hidden');
+        document.body.classList.add('portfolio-entering');
+        
+        // Remove element completely after fade
+        setTimeout(() => {
+          welcomeScreen.style.display = 'none';
+          document.body.classList.remove('portfolio-entering'); // cleanup classes
+        }, 2000);
+      }, 500);
+
+      sessionStorage.setItem('introPlayed', 'true');
+    };
+    
+    welcomeScreen.addEventListener('click', clickHandler);
+  }
+
+  // Music Toggle Logic
+  musicToggle.addEventListener('click', () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      musicToggle.classList.add('playing');
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'block';
+    } else {
+      bgMusic.pause();
+      musicToggle.classList.remove('playing');
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+    }
+  });
+}
+
 // ── INIT ALL ─────────────────────────────────────────────────
 function init() {
   injectDynamicStyles();
   initPreloader();
   initCursor();
   initNavbar();
+  initCinematicEntrance();
   initHeroCanvas();
   initDomParticles();
   initTypewriter();
