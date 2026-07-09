@@ -826,3 +826,50 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+// --- Lightbox Functionality ---
+const lightbox = document.getElementById('lightbox');
+const lightboxContent = document.getElementById('lightboxContent');
+const lightboxClose = document.getElementById('lightboxClose');
+
+document.querySelectorAll('.graphics-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const media = item.querySelector('img, video');
+    if (media) {
+      const clone = media.cloneNode(true);
+      if (clone.tagName === 'VIDEO') {
+        clone.controls = true;
+      }
+      lightboxContent.innerHTML = '';
+      lightboxContent.appendChild(clone);
+      
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+});
+
+const closeLightbox = () => {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => {
+    lightboxContent.innerHTML = '';
+  }, 300);
+};
+
+if (lightboxClose) {
+  lightboxClose.addEventListener('click', closeLightbox);
+}
+
+if (lightbox) {
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxContent) {
+      closeLightbox();
+    }
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox && lightbox.classList.contains('open')) {
+    closeLightbox();
+  }
+});

@@ -47,6 +47,7 @@
       <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
       <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
       <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      <li><a href="#graphics" class="nav-link" data-section="graphics">Graphics</a></li>
     </ul>
 
     <div class="nav-cta">
@@ -78,6 +79,9 @@
         <a href="#contact" class="mobile-nav-link" data-close-menu>
           <span class="mobile-nav-num">05</span>Contact
         </a>
+        <a href="#graphics" class="mobile-nav-link" data-close-menu>
+          <span class="mobile-nav-num">06</span>Graphics
+        </a>
       </nav>
       <div class="mobile-menu-socials">
         <a href="https://github.com/Mashukkhanpranta" target="_blank" class="mobile-social-link">GitHub</a>
@@ -91,7 +95,7 @@
   <section id="home" class="hero-section">
     <!-- Background -->
     <div class="hero-bg">
-      <video src="assets/vedio/lv_0_20260525231143.mp4" autoplay loop muted playsinline class="hero-bg-img"></video>
+      <img src="assets/images/descipline .jpg" alt="Focus Motivation" class="hero-bg-img" style="opacity: 0.7;" />
       <div class="hero-bg-overlay"></div>
       <div class="hero-bg-artistic">
         <img src="assets/images/bg_artistic.jpg" alt="Artistic overlay" class="hero-artistic-img" />
@@ -190,9 +194,7 @@
       <div class="scroll-indicator-text mono">scroll</div>
       <div class="scroll-indicator-line"></div>
     </div>
-    
-    <!-- Drake Watermark -->
-    <div class="drake-watermark">i am a biggest fan of Drake</div>
+
   </section>
 
   <!-- ─── ABOUT SECTION ─────────────────────────────────── -->
@@ -284,7 +286,7 @@
           <div class="timeline-item reveal-right">
             <div class="timeline-dot"></div>
             <div class="timeline-content glass-card">
-              <span class="timeline-date mono">2024 – Present</span>
+              <span class="timeline-date mono">2024 – Running (CGPA: 3.56)</span>
               <h4>B.Sc. in Computer Science & Engineering</h4>
               <h5 style="font-size: 15px; font-weight: 600; color: var(--clr-text-muted); margin-bottom: 8px;">Southeast University</h5>
               <p>Studying core CS fundamentals — algorithms, data structures, OS, networking, databases, and more.</p>
@@ -851,6 +853,37 @@
     </div>
   </section>
 
+  <!-- ─── GRAPHICS DESIGN SECTION ─────────────────────── -->
+  <section id="graphics" class="graphics-section section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label mono">// 05. graphics</span>
+        <h2 class="section-title">Graphics <span class="gradient-text">Design</span></h2>
+        <p class="section-desc">A collection of my creative graphic design works and visual art.</p>
+      </div>
+      
+      <div class="graphics-masonry reveal-up">
+        <!-- Item 1: Image -->
+        <div class="graphics-item">
+          <img src="assets/Graphics workl/Gemini_Generated_Image_48yfvu48yfvu48yf.png" alt="Graphics Poster" loading="lazy" />
+        </div>
+        <!-- Item 2: Video -->
+        <div class="graphics-item">
+          <video src="assets/vedio/make_racing_f_running_on_the.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <!-- Item 3: Image -->
+        <div class="graphics-item">
+          <img src="assets/images/descipline .jpg" alt="Design Art" loading="lazy" />
+        </div>
+        <!-- Item 4: Video -->
+        <div class="graphics-item">
+          <!-- Placeholder video using the same source so it doesn't break, swap later -->
+          <video src="c:\Users\maruf\Desktop\portfolio\assets\vedio\make_a_coding_cinematic_vedio.mp4" autoplay loop muted playsinline></video>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── FOOTER ────────────────────────────────────────── -->
   <footer class="footer">
     <div class="footer-grid-bg"></div>
@@ -889,6 +922,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- ─── LIGHTBOX MODAL ────────────────────────────────── -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <div class="lightbox-content" id="lightboxContent"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
